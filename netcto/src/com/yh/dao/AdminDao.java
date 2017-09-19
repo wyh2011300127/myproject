@@ -15,21 +15,22 @@ import com.yh.dto.AdminInfo;
 @Repository("adminDao")
 public class AdminDao extends BaseDaoSupport{
 	
-	/**
-	 * ±£¥ÊAdminInfo
-	 * @param adminInfo
-	 */
-	public void saveAdmin(AdminInfo adminInfo){
+	public void save(AdminInfo adminInfo){
 		this.getHibernateTemplate().save(adminInfo);
+	}
+	
+	public void delete(AdminInfo adminInfo) {
+		this.getHibernateTemplate().delete(adminInfo);
+	}
+	
+	public void get(String id) {
+		this.getHibernateTemplate().get(this.getClass().getName(), id);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public AdminInfo queryByAdminCode( String adminCode ){
 		List<AdminInfo> find = (List<AdminInfo>) this.getHibernateTemplate().find(
 				"from AdminInfo admin where admin.adminCode = ? " , adminCode);
-		/*for(AdminInfo adminInfo : find){
-			System.out.println(adminInfo);
-		}*/
 		if( find != null && find.size() > 0){
 			for(AdminInfo adminInfo : find ){
 				if(adminInfo == null ){
