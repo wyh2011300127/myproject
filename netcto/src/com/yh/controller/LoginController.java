@@ -111,6 +111,7 @@ public class LoginController {
 		ResponseUtil.readerLoginMsg("登陆成功", response, "0");
 		return null;
 	}
+	
 	/**
 	 * 跳转到主页面
 	 * @param request

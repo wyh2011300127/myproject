@@ -14,7 +14,7 @@ public class AdminService {
 	private AdminDao adminDao;
 	
 	public void saveAdminInfo( AdminInfo adminInfo ){
-		adminDao.saveAdmin(adminInfo);
+		adminDao.save(adminInfo);
 	}
 	
 	public AdminInfo queryByAdminCode( String adminCode ){
