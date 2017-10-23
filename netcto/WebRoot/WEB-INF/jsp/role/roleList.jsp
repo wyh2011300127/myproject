@@ -8,6 +8,75 @@
         <link type="text/css" rel="stylesheet" media="all" href="${pageContext.request.contextPath }/styles/global.css" />
         <link type="text/css" rel="stylesheet" media="all" href="${pageContext.request.contextPath }/styles/global_color.css" /> 
     </head>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/layui/layui.all.js"></script>
+    <script type="text/javascript">
+    	layui.use('layer', function(){
+    		var layer = layui.layer;
+    	});
+    	
+    	function btn_add(){
+    		var msg = "是否确认操作？";
+    		//eg1
+    		//layer.alert('酷毙了', {icon: 1});
+    		//eg2
+    		//layer.msg('不开心。。', {icon: 5});
+    		//eg3
+    		//layer.load(1); //风格1的加载
+   			var isIndex = layer.open({
+   				title:'提示',
+   				content:msg,
+   				icon:'3',
+   				btn:['确定','取消'],
+   				yes:function(){
+   					layer.close(isIndex);
+   					alert(111);
+   				},
+   				btn2:function(){}
+   			});
+    		return false;
+    		layer.open({
+    			title:['欢迎来到英雄联盟','text-align:center;'],
+    			type:'1',
+    			area:['300px','200px'],
+    			content:'hahahahah'
+    		});
+    	}
+    	function btn_add2(){
+    		layer.tab({
+   			  area: ['600px', '300px'],
+   			  tab: [{
+   			    title: 'TAB1', 
+   			    content: '内容1'
+   			  }, {
+   			    title: 'TAB2', 
+   			    content: '内容2'
+   			  }, {
+   			    title: 'TAB3', 
+   			    content: '内容3'
+   			  }]
+   			});
+    	}
+    	function btn_add3(){
+    		layer.prompt({
+   			  formType: 2,
+   			  value: '初始值',
+   			  title: '请输入值',
+   			  area: ['800px', '350px'] //自定义文本域宽高
+   			}, function(value, index, elem){
+   			  alert(value); //得到value
+   			  layer.close(index);
+   			});
+    	}
+    	function btn_add4(){
+    		//var index = layer.load(1);
+    		var index = layer.load(2, {time:10*1000});//加载10秒钟
+    		//layer.close(index);
+    	}
+    	//页面一打开就执行弹层
+    	/* layer.ready(function(){
+    	  layer.msg('很高兴一开场就见到你');
+    	});  */ 
+    </script>
     <body>
     	<!--Logo区域开始-->
         <div id="header">
@@ -24,7 +93,7 @@
             <form action="" method="">
                 <!--查询-->
                 <div class="search_add">
-                    <input type="button" value="增加" class="btn_add" onclick="location.href='role_add.html';" />
+                    <input type="button" value="增加" class="btn_add" onclick="btn_add4();" />
                 </div>  
                 <!--删除的操作提示-->
                 <div id="operate_result_info" class="operate_success">
