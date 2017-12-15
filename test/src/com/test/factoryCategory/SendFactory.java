@@ -6,6 +6,11 @@ package com.test.factoryCategory;
  */
 public class SendFactory {
 
+	/**
+	 * 普通工厂方法模式
+	 * @param type
+	 * @return
+	 */
 	public Sender produce(String type) {
 		
 		if ("main".equals(type)) {
@@ -18,5 +23,28 @@ public class SendFactory {
 		}
 	}
 	
+	/**
+	 * 多个工厂方法模式
+	 * @return
+	 */
+	public Sender produceSms(){
+		return new SmsSender();
+	}
+	
+	public Sender produceMail(){
+		return new MailSender();
+	}
+	
+	/**
+	 * 静态工厂方法模式
+	 * @return
+	 */
+	public static Sender produceMailStatic(){  
+        return new MailSender();  
+    }  
+      
+    public static Sender produceSmsStatic(){  
+        return new SmsSender();  
+    }  
 	
 }
