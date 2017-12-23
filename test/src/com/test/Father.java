@@ -4,7 +4,7 @@ public class Father {
 	public String v = "Father";
 	public String x = "输出了Father类的public成员变量x!!!";
 	public String hello = "Hello World!";
-
+ 
 	public Father() {
 		System.out.println("Father构造方法被调用!");
 	}
