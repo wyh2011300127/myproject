@@ -39,6 +39,9 @@ public class Son extends Father {
 		
 		System.out.println("------4-----");
 		System.out.println(hello);
+		System.out.println(hello);
+		System.out.println(hello);
+		System.out.println(hello);
 	}
 
 	public static void main(String[] args) {
