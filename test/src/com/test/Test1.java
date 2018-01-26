@@ -13,6 +13,38 @@ public class Test1 {
 	 */
 	public static void main(String[] args) {
 		try {
+
+StringBuilder sql = new StringBuilder();
+			sql.append("select l.id, ");
+			sql.append("       l.camp_line, ");
+			sql.append("       l.group_id, ");
+			sql.append("       l.client_code, ");
+			sql.append("       l.color, ");
+			sql.append("       l.num, ");
+			sql.append("       l.order_no, ");
+			sql.append("       o.company_id, ");
+			sql.append("       o.from_pre_sell ");
+			sql.append("  from b2b_stock_order_log l ");
+			sql.append("  left join b2b_order o ");
+			sql.append("    on l.order_no = o.order_no ");
+			sql.append(" where l.oper_type = 1 ");
+			sql.append("   and l.camp_line is not null ");
+			sql.append("   and instr(l.order_no, 'DD') > 0 ");
+			sql.append("   and o.company_id is null ");
+			sql.append("   and not exists (select 1 ");
+			sql.append("          from b2b_stock_order_log t ");
+			sql.append("         where t.order_no = l.order_no ");
+			sql.append("           and t.oper_type = 2 ");
+			sql.append("           and t.camp_line = l.camp_line) ");
+			sql.append("   and not exists ");
+			sql.append(" (select 1 ");
+			sql.append("          from b2b_order_item i ");
+			sql.append("         where i.order_no = l.order_no ");
+			sql.append("           and i.camp_line = l.camp_line) ");
+			sql.append("   and l.create_time >= to_date('20171201 00:00:00', 'yyyyMMdd hh24:mi:ss')");
+
+
+			
 //			test1();
 			//test2();
 			//test3();
@@ -31,7 +63,24 @@ public class Test1 {
 			//System.out.println(b);
 			//StringBuffer error = new StringBuffer();
 			//System.out.println(error.length());
-			System.out.println(Test1.class);
+			//System.out.println(Test1.class);
+			long start = System.currentTimeMillis();
+			System.out.println("开始时间：" + start + "ms");
+			String str = "";
+			StringBuffer sb = new StringBuffer("");
+			StringBuilder ssb = new StringBuilder();
+			
+			for (int i = 0; i < 1000000; i++) {
+				//str += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+				//sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+				ssb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+			}
+			sb.toString();
+			ssb.toString();
+			long end = System.currentTimeMillis();
+			System.out.println("结束时间：" + end + "ms");
+			System.out.println("耗时：" + (end - start) + "ms");
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
