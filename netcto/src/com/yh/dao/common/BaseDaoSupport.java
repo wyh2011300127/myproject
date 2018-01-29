@@ -36,18 +36,42 @@ public class BaseDaoSupport extends HibernateDaoSupport {
 		this.getHibernateTemplate().save(entity);
 	}
 
+	/**
+	 * 更新对象
+	 * 
+	 * @param entity
+	 */
 	public <T> void update(T entity) {
 		this.getHibernateTemplate().update(entity);
 	}
 
+	/**
+	 * 删除对象
+	 * 
+	 * @param entity
+	 */
 	public <T> void delete(T entity) {
 		this.getHibernateTemplate().delete(entity);
 	}
 
+	/**
+	 * 根据ID获取对象
+	 * 
+	 * @param entityClass
+	 * @param id
+	 * @return
+	 */
 	public <T> T findById(Class<T> entityClass, Serializable id) {
 		return (T) this.getHibernateTemplate().get(entityClass, id);
 	}
 
+	/**
+	 * 根据hql获取唯一的对象
+	 * 
+	 * @param hql
+	 * @param params
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public <T> T getUniqueResult(String hql, Object... params) {
 		Query query = this.getSession().createQuery(hql);
