@@ -45,7 +45,6 @@ public class LoginController {
 			e.printStackTrace();
 			logger.info("获取验证码错误...");
 		}
-		
 	}
 	/**
 	 * 登陆方法
