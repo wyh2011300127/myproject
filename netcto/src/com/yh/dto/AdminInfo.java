@@ -1,7 +1,6 @@
 package com.yh.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,7 +31,7 @@ public class AdminInfo implements Serializable{
 	@Column(name="EMAIL")
 	private String email;
 	@Column(name="ENROLLDATE")
-	private Date enrolldate;
+	private String enrolldate;
 	
 	public AdminInfo(){}
 
@@ -84,11 +83,11 @@ public class AdminInfo implements Serializable{
 		this.email = email;
 	}
 
-	public Date getEnrolldate() {
+	public String getEnrolldate() {
 		return enrolldate;
 	}
 
-	public void setEnrolldate(Date enrolldate) {
+	public void setEnrolldate(String enrolldate) {
 		this.enrolldate = enrolldate;
 	}
 

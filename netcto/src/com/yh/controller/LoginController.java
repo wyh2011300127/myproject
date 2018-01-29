@@ -96,19 +96,25 @@ public class LoginController {
 			ResponseUtil.readerLoginMsg("密码长度大于20", response, "1");
 			return null;
 		}
-		//根据用户名查询密码
-		AdminInfo adminInfo = adminService.queryByAdminCode(adminCode);
-		if( adminInfo == null ){
-			ResponseUtil.readerLoginMsg("用户不存在", response, "1");
-			return null;
+		try {
+			//根据用户名查询密码
+			AdminInfo adminInfo = null;
+			adminInfo = adminService.queryByAdminCode(adminCode);
+			if( adminInfo == null ){
+				ResponseUtil.readerLoginMsg("用户不存在", response, "1");
+				return null;
+			}
+			if( adminInfo.getPassword() == "" || !adminInfo.getPassword().equals(password) ){
+				ResponseUtil.readerLoginMsg("密码错误", response, "1");
+			}
+			request.getSession().removeAttribute("yzm");
+			request.getSession().setAttribute("adminCode", adminCode);
+			request.getSession().setAttribute("adminInfo", adminInfo);
+			ResponseUtil.readerLoginMsg("登陆成功", response, "0");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		if( adminInfo.getPassword() == "" || !adminInfo.getPassword().equals(password) ){
-			ResponseUtil.readerLoginMsg("密码错误", response, "1");
-		}
-		request.getSession().removeAttribute("yzm");
-		request.getSession().setAttribute("adminCode", adminCode);
-		request.getSession().setAttribute("adminInfo", adminInfo);
-		ResponseUtil.readerLoginMsg("登陆成功", response, "0");
 		return null;
 	}
 	
