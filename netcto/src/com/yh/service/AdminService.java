@@ -17,7 +17,7 @@ public class AdminService {
 		adminDao.save(adminInfo);
 	}
 	
-	public AdminInfo queryByAdminCode( String adminCode ){
+	public AdminInfo queryByAdminCode( String adminCode ) throws Exception{
 		return adminDao.queryByAdminCode(adminCode);
 	}
 	
