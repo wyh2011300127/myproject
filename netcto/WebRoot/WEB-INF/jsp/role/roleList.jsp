@@ -90,7 +90,7 @@
         </div>
         <!--主要区域开始-->
         <div id="main">
-            <form action="" method="">
+            <form action="" method="POST">
                 <!--查询-->
                 <div class="search_add">
                     <input type="button" value="增加" class="btn_add" onclick="btn_add4();" />
