@@ -111,7 +111,6 @@ public class LoginController {
 			request.getSession().setAttribute("adminInfo", adminInfo);
 			ResponseUtil.readerLoginMsg("µÇÂ½³É¹¦", response, "0");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
