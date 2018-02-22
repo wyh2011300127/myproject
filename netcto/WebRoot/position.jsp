@@ -49,8 +49,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <!-- ¸¡¶¯¶¨Î» -->
         <div class="div" style="height:400px;width:400px;">
+       		<div style="float:right;width:50px;height:50px;border:2px dotted black;margin:0px 0px 10px 20px;"></div>
         	<p>
-        		<div style="float:right;width:50px;height:50px;border:2px dotted black;margin:0px 0px 10px 20px;"></div>
         		This is some text. This is some text. This is some text.
 		        This is some text. This is some text. This is some text.
 		        This is some text. This is some text. This is some text.
