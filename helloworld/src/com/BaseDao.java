@@ -9,6 +9,6 @@ public class BaseDao {
 
 	public static void main(String[] args) {
 		sys();
-		System.out.println("123456");
+		System.out.println("123456789");
 	}
 }
